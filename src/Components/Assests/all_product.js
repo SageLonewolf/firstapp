@@ -41,8 +41,8 @@ let all_product = [
     name: "Striped Flutter Sleeve Overlap Collar Peplum Hem Blouse",
     category: "women",
     image: p1_img,
-    new_price: 50.0,
-    old_price: 80.5,
+    new_price: 500,
+    old_price: 805,
     des:"Elevate your wardrobe with our Striped Flutter Sleeve Overlap Collar Peplum Hem Blouse. This charming blouse features flutter sleeves and an overlap collar for a touch of feminine flair. The peplum hem adds a flattering silhouette, making it perfect for both casual and dressy occasions. Crafted from high-quality fabric, it offers comfort and style in equal measure. Whether paired with jeans for a relaxed daytime look or with tailored trousers for a more polished ensemble, this blouse is sure to become a staple in your wardrobe.",
   },
   {
@@ -50,8 +50,8 @@ let all_product = [
     name: "Striped Flutter Sleeve Overlap Collar Peplum Hem Blouse",
     category: "women",
     image: p2_img,
-    new_price: 85.0,
-    old_price: 120.5,
+    new_price: 850,
+    old_price: 1205,
     des:"Make a statement with our Striped Flutter Sleeve Overlap Collar Peplum Hem Blouse. Designed for the modern woman, this blouse combines chic style with effortless comfort. The flutter sleeves and overlap collar add a playful touch, while the peplum hem creates a flattering silhouette. Crafted from premium materials, it offers a luxurious feel against the skin. Whether dressed up with a skirt for a night out or paired with jeans for a casual day look, this blouse is versatile enough for any occasion.",
   },
   {

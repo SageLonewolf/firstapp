@@ -58,6 +58,7 @@
     display: inline;
    color: red;
    font-weight: 600; 
+   cursor: pointer;
 }
 
 .loginsignup-agree{
