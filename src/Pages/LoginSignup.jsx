@@ -16,11 +16,44 @@ export const LoginSignup = () => {
 
   const login = async ()=>{
     console.log("Login used",formData);
+    let resposeData;
+    await fetch('http://localhost:4000/login',{
+      method:'POST',
+      headers:{
+        Accept:'application/form-data',
+        'Content-type':'application/json',
+      },
+      body: JSON.stringify(formData),
+    }).then((response)=> response.json()).then((data)=>resposeData=data)
+
+    if(resposeData.success){
+      localStorage.setItem('auth-token',resposeData.token);
+      window.location.replace("/");
+    }
+    else{
+      alert(resposeData.errors)
+    }
   }
 
   const signup = async ()=>{
     console.log("Signup used",formData);
+    let resposeData;
+    await fetch('http://localhost:4000/signup',{
+      method:'POST',
+      headers:{
+        Accept:'application/form-data',
+        'Content-type':'application/json',
+      },
+      body: JSON.stringify(formData),
+    }).then((response)=> response.json()).then((data)=>resposeData=data)
 
+    if(resposeData.success){
+      localStorage.setItem('auth-token',resposeData.token);
+      window.location.replace("/");
+    }
+    else{
+      alert(resposeData.errors)
+    }
   }
 
   return (

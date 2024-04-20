@@ -114,6 +114,24 @@ app.post('/removeproduct',async (req,res)=>{
     })
 })
 
+app.get('/newcollections',async (req,res)=>{
+    let products = await Product.find({});
+    let newcollection = products.slice(1).slice(-8);
+    console.log("New collection fetched");
+    res.send(newcollection);
+})
+
+app.get('/popular',async (req,res)=>{
+    let products = await Product.find({category:"women"});
+    let popular_in_woman = products.slice(0,4);
+    console.log("popular fetched");
+    res.send(popular_in_woman);
+})
+
+app.post('/addtocart',fetchUser,async (req,res)=>{
+    console.log(req.body);
+})
+
 app.get('/allproducts', async (req, res) => {
         const products = await Product.find({});
         console.log("ALL FETCHED")
@@ -189,6 +207,22 @@ app.post('/login',async (req,res)=>{
         res.json({success:false,errors:"Wrong Email Id"});
     }
 })
+
+const fetchUser= async (req,res,next)=>{
+    const token = req.header('auth-token');
+    if(!token){
+        res.status(401).send({errors:"please authenticate using valid token"})
+    }
+    else{
+        try{
+            const data = jwt.verify(token,'secret_ecom');
+            req.user = data.user;
+            next();
+        } catch (error){
+            res.status(401).send({error:"please authenticate using valid token"})
+        }
+    }
+}
  
 app.listen(port,(error) => {
     if(!error){

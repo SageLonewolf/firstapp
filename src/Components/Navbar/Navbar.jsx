@@ -29,10 +29,22 @@ const Navbar = () => {
             <li onMouseOver={()=>{setMenu("KIDS")}} onMouseOut={()=>{setMenu("NONE")}}><Link style={{ textDecoration: 'none', color: 'inherit'}} to='/kids'>KIDS</Link>{Menu==="KIDS"?<hr/>:<></>}</li>
         </ul>
         <div className='nav-login-cart'>
-            <Link to='/signup'><button>SIGN UP</button></Link>
-            <Link to='/cart'><button className='cart'><img src={cart_icon} alt="cart_icon" /> <span>CART</span></button></Link>
-            <div className="nav-car-count">{getTotalCartItems()}</div>
-        </div>
+    {localStorage.getItem('auth-token') ? (
+        <button onClick={() => {localStorage.removeItem('auth-token'); window.location.replace('/')}}>LogOut</button>
+    ) : (
+        console.log("Auth token not found"),
+        <Link to='/signup'>
+            <button>SIGN UP</button>
+        </Link>
+    )}
+    <Link to='/cart'>
+        <button className='cart'>
+            <img src={cart_icon} alt="cart_icon" /> 
+            <span>CART</span>
+        </button>
+    </Link>
+    <div className="nav-car-count">{getTotalCartItems()}</div>
+</div>
     </div>
   )
 }
